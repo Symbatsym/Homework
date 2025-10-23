@@ -1,0 +1,19 @@
+console.log("Все чила от 1 до 20:");
+for(let i = 1; i <= 20; i++) {
+    console.log(i);
+}
+
+console.log("\nЧетные числа щт 1 до 20:");
+for(let i = 1; i <= 20; i++) {
+if (i % 2 === 0) {
+        console.log(i);
+    } 
+}
+ 
+let sum0dd = 0;
+for (let i = 1; i <= 20; i++) {
+    if (i % 2 !== 0) {
+     sum0dd += i;
+    }
+}
+console.log("\nСумма всех нечетных чисел от 1 до 20:", sum0dd);
