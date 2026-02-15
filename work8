@@ -1,0 +1,2 @@
+result = code[::2]
+print(result)
