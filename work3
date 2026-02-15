@@ -1,0 +1,3 @@
+phrase = "abcdefghijklmno"
+result = phrase[::2]
+print(result)
