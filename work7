@@ -1,0 +1,3 @@
+word = "Python"
+result = word[1:-1]
+print(result)
