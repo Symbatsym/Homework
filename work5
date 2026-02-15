@@ -1,0 +1,3 @@
+data = "MachineLearning"
+result = data[7:12]
+print(result)
