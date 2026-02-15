@@ -1,0 +1,3 @@
+sentence = "АнализДанных"
+result = sentence[-4:]
+print(result)
