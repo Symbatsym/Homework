@@ -1,0 +1,34 @@
+import math
+import datetime
+
+sqrt_value = math.sqrt(25)
+pi_value = math.pi
+cos_value = math.cos(math.radians(45))
+
+try:
+    with open("results.txt", "w", encoding="utf-8") as file:
+        file.write(f"Квадратный корень из 25: {sqrt_value}\n")
+        file.write(f"Значение π: {pi_value}\n")
+        file.write(f"Косинус 45 градусов: {cos_value}\n")
+    print("Данные успешно записаны в файл.\n")
+except Exception as e:
+    print("Ошибка при записи в файл:", e)
+
+
+try:
+    with open("results.txt", "r", encoding="utf-8") as file:
+        print("Содержимое файла:")
+        for line in file:
+            print(line.strip())
+except FileNotFoundError:
+    print("Ошибка: файл results.txt не найден.")
+
+
+current_datetime = datetime.datetime.now()
+
+try:
+    with open("results.txt", "a", encoding="utf-8") as file:
+        file.write(f"\nДата и время: {current_datetime}\n")
+    print("\nДата и время добавлены в файл.")
+except Exception as e:
+    print("Ошибка при добавлении данных:", e)
