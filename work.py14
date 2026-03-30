@@ -1,0 +1,39 @@
+def display_books(library_books):
+    borrower_fines = {}
+
+    for book_id, book in library_books.items():
+        print(f"Книга: {book['title']} (ID: {book_id})")
+
+        borrower = book["borrower"]
+        due_date = book["due_date"]
+        fine_rate = book["fine_rate"]
+
+        if borrower is None:
+            status = "Доступна"
+            overdue_days = 0
+            fine = 0
+            borrower_name = "Нет"
+        else:
+            borrower_name = borrower
+            if due_date > 0:
+                status = "Просрочена"
+                overdue_days = due_date
+                fine = overdue_days * fine_rate
+                borrower_fines[borrower] = borrower_fines.get(borrower, 0) + fine
+            else:
+                status = "В срок"
+                overdue_days = 0
+                fine = 0
+
+        print(f"  Заемщик: {borrower_name}")
+        print(f"  Статус: {status}")
+        print(f"  Дней просрочки: {overdue_days}")
+        print(f"  Штраф: ${fine:.2f}")
+        print()
+
+    # Поиск заемщика с максимальным штрафом
+    if borrower_fines:
+        max_borrower = max(borrower_fines, key=borrower_fines.get)
+        print("Заемщик с наибольшими штрафами:")
+        print(f"  Имя: {max_borrower}")
+        print(f"  Общий штраф: ${borrower_fines[max_borrower]:.2f}")
